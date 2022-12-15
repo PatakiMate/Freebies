@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Freebies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Changa+One:ital@1&family=Fira+Sans:ital@1&family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="bg-black"
+    x-data="{
+     infoHover: false,
+loggedIn: false
+  }"
+  >
+    <div class="w-full px-[20px] lg:px-[150px]">
+      <div class="flex justify-between mt-[25px] items-center">
+        <h1 class="text-white text-[38px] md:text-[42px]">FREEBIES</h1>
+        <div
+          x-on:click="loggedIn = true"
+          x-bind:class="loggedIn ? 'bg-[#101214]' : 'bg-[#99BC2C]'"
+          class="bg-[#99BC2C] rounded-[8px] h-[48px] min-w-[106px] px-[10px] flex justify-center items-center cursor-pointer"
+        >
+          <img
+            x-show="!loggedIn"
+            class="w-[18px]"
+            src="images/DiscordLogo.svg"
+            alt=""
+          />
+          <img
+            x-show="loggedIn"
+            class="w-[35px]"
+            src="images/Eternl.svg"
+            alt=""
+          />
+          <h2
+            x-text="loggedIn ? 'addr...sad54d': 'Log in'"
+            class="text-white ml-[8px]"
+          >
+            Log in
+          </h2>
+        </div>
+      </div>
+      <div
+        class="bg-[#1F2226] rounded-[8px] w-full mt-[25px] p-[18px] relative"
+      >
+        <div
+          class="w-full flex flex-col xl:flex-row items-center justify-between"
+        >
+          <div class="flex flex-col md:flex-row items-center">
+            <h1 class="text-white text-[24px]">AVAILABLE NFTS TO CLAIM:</h1>
+            <div class="flex items-center">
+              <div
+                class="bg-[#99BC2C] rounded-[4px] h-[25px] ml-[15px] flex justify-center items-center px-[6px] py-[16px]"
+              >
+                <h1 class="text-white text-[24px]">1000</h1>
+              </div>
+              <div
+                x-on:mouseover="infoHover = true"
+                x-on:mouseover.away="infoHover = false"
+                class="bg-[url('images/InfoButton.svg')] bg-cover w-[20px] h-[20px] relative ml-[10px] cursor-pointer"
+              >
+                <div
+                  x-show="infoHover"
+                  class="bg-[#131518] w-[200px] md:w-[250px] absolute z-10 right-[30px] md:left-auto lg:left-[30px] lg:right-auto p-[10px] rounded-[4px]"
+                >
+                  <p class="text-[12px]">
+                    Lorem ipsum is placeholder text commonly used in the
+                    graphic, print, and publishing industries for previewing
+                    layouts and visual mockups.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row items-center mt-[18px] xl:mt-0">
+            <h1 class="text-white text-[18px]">NEXT ROUND:</h1>
+            <div class="flex items-center">
+              <div
+                class="bg-[#131518] rounded-[4px] h-[25px] ml-0 md:ml-[15px] flex justify-between items-center px-[6px] py-[16px]"
+              >
+                <h1 class="text-white text-[18px] mr-[5px]">18</h1>
+                <p class="text-[12px] mt-[2px]">Days</p>
+              </div>
+              <div
+                class="bg-[#131518] rounded-[4px] h-[25px] ml-[5px] flex justify-between items-center px-[6px] py-[16px]"
+              >
+                <h1 class="text-white text-[18px] mr-[5px]">12</h1>
+                <p class="text-[12px] mt-[2px]">Hours</p>
+              </div>
+              <div
+                class="bg-[#131518] rounded-[4px] h-[25px] ml-[5px] flex justify-between items-center px-[6px] py-[16px]"
+              >
+                <h1 class="text-white text-[18px] mr-[5px]">55</h1>
+                <p class="text-[12px] mt-[2px]">Minutes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="grid gird-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-[10px] mt-[25px]"
+        >
+          <template x-for="i in 10">
+            <div
+              class="w-full bg-black rounded-[8px] relative"
+              x-data="{mouseOver: false}"
+              x-on:mouseover="mouseOver = true"
+              x-on:mouseover.away="mouseOver = false"
+            >
+              <h1
+                x-show="mouseOver == false"
+                class="text-white text-[18px] my-[10px] ml-[10px]"
+              >
+                GOATWORSHIPPER
+              </h1>
+              <div
+                x-bind:class="mouseOver ? 'h-full rounded-[8px]' : 'w-full'"
+                class="bg-[url('images/TestImage.png')] bg-cover w-full pb-[100%] bg-center"
+              ></div>
+              <p
+                x-show="mouseOver == false"
+                class="text-[12px] my-[10px] ml-[10px]"
+              >
+                Claimed: 0
+              </p>
+              <div
+                x-show="mouseOver"
+                class="absolute w-full h-full bg-[rgb(0,0,0,0.8)] left-0 bottom-0 rounded-[7px] flex items-center justify-center"
+              >
+                <div
+                  x-bind:class="loggedIn ? 'bg-[#99BC2C] cursor-pointer' : 'bg-[#868E9A] cursor-default'"
+                  class="bg-[#99BC2C] rounded-[8px] h-[48px] px-[14px] flex justify-center items-center cursor-pointer"
+                >
+                  <h2
+                    x-text="loggedIn ? 'Claim' : 'Log in to Claim'"
+                    class="text-white"
+                  >
+                    Claim
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full h-[200px] bg-white relative bottom-0 flex flex-col justify-center items-center mt-[100px]"
+    >
+      <div
+        class="bg-[url(images/FooterTop.svg)] bg-cover lg:bg-contain bg-no-repeat h-[50px] absolute top-[-15px] w-full"
+      ></div>
+      <img class="w-[60px]" src="images/BajuzkiLogo.svg" alt="" />
+      <h2 class="text-[14px] md:text-[18px] mt-[25px]">
+        Copyright © 2022 bajuzki. All rights reserved
+      </h2>
+    </div>
+  </body>
+  <script></script>
+</html>

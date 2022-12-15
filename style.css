@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa+One:ital@1&family=Fira+Sans:ital@1&family=Roboto:wght@700&display=swap");
+
+h1 {
+  font-family: "changa";
+}
+
+h2 {
+  font-family: "roboto";
+}
+
+p {
+  font-family: "fira";
+  color: white;
+}
+
+@font-face {
+  font-family: "changa";
+  src: url(fonts/ChangaOne-Italic.ttf);
+}
+@font-face {
+  font-family: "fira";
+  src: url(fonts/FiraSans-Italic.ttf);
+}
+@font-face {
+  font-family: "roboto";
+  src: url(fonts/Roboto-Bold.ttf);
+}
